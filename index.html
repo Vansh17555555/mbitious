@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div class="splash">
+    <img class="fade-in" src="1.png" alt="logo">
+</div>
+<header>
+    <div class="topnav" id="myTopnav">
+      <img class="icon" style="margin-right:700px; width: 90px; height:95px; background-color:white; padding-left:30px; padding-right:20px; overflow:hidden;"src ="1.png" alt="logo">
+        <a href="#About" >About</a>
+        <a href="#Community">Community</a>
+        <a href="#Contact">Contact</a>
+        <a href="#Dashboard" class="active">Dashboard</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+</header>  
+    <section id="home">
+        <div class="slides">
+    <img src="fire1.jpg" alt="">
+</div>
+        <div class="slides"> 
+       <img src="ambitious2.jpg" alt="">
+    </div>
+    <div class="slides">
+        <img src="fire2.jpg" alt="">
+    </div>
+    <div class="slides">
+        <img src="fire1.jpg" alt="">
+    </div>
+    <div class="slides">
+        <img src="fire2.jpg" alt="">
+    </div>
+    <div class="slides">
+        <img src="ambitious2.jpg" alt="">
+    </div>
+
+    <span class="arrow prev" onclick="control(-1)"></span>
+    <span class="arrow next" onclick="control(+1)"></span>
+</section>
+<section id="content">
+    <div class="more">
+        <h2>want to know more?</h2>
+        <button>Sign In</button>
+    </div>
+    <div class="new">
+        <h4>do not have an account?<a href=" ">create new</a></h4>
+    </div>
+</section>
+<footer>
+    <div class="footnav" style="padding:auto;background-color:#333;">
+        mbitious
+    </div>
+</footer>
+  <script>
+    function automate(x){
+let i=0,j=0;
+let slides = document.getElementsByClassName("slides");
+
+slides[x].style.display = "block";
+
+if(x === 1){
+  
+  slides[0].style.display = "none";
+}
+
+for(j=x-1;j>=0;j--){
+  slides[j].style.display = "none";
+  console.log("hello");
+
+}
+
+for(i=x+1;i<slides.length;i++){
+  slides[i].style.display = "none";
+  console.log("hello");
+}
+}
+let carousel = 0;
+function mycarousel(){
+  
+  if(carousel === 6){
+    carousel = 0;
+  }
+    automate(carousel);
+    carousel= carousel+1;
+    console.log(carousel);
+   
+}
+
+setInterval(mycarousel, 2400);
+let f= 0;
+function control(x) {
+  f = f + x;
+  show(f);
+}
+
+show(f);
+
+function show(num) {
+  let slide = document.getElementsByClassName("slides");
+  
+  if (num == slide.length) {
+    f= 0;
+    num = 0;
+  }
+
+  if (num < 0) {
+    f = slide.length - 1;
+    num = slide.length - 1;
+  }
+
+  for (let y of slide) {
+    y.style.display = "none";
+  }
+
+  slide[num].style.display = "block";
+}
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+const splash=document.querySelector('.splash');
+document.addEventListener('DOMContentLoaded',(e)=>{
+    setTimeout(()=>{
+        splash.classList.add('display-none');
+    },7000);
+})
+      </script>
+</body>
+</html>
